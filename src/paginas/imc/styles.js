@@ -12,16 +12,18 @@ const styles = StyleSheet.create({
     },
     coluna1:{
         flex:1,
-        backgroundColor:'blue'
+        //backgroundColor:'blue'
     },
     coluna2:{
         flex:0.4,
-        backgroundColor:'aqua',
+        //backgroundColor:'aqua',
+        alignItems:'center',
+        justifyContent:'center'
        
     },
     divTitulo: {
         flex: 1,
-        backgroundColor:"red",
+        //backgroundColor:"red",
         alignItems: 'center',
         justifyContent: 'center',
         //backgroundColor: "lightgrey",
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginTop: 20,
         marginStart: 10,
-        color:'white'
+        color:'black'
     },
     input: {
         width: '70%',
@@ -75,6 +77,18 @@ const styles = StyleSheet.create({
         fontWeight:'600',
         marginTop:20,
         marginBottom:20,
+    },
+    btnReset:{
+        width: "60%",
+        height: 60,
+        backgroundColor: "grey",
+        borderRadius: 50,
+        //marginTop: 30,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    txtReset:{
+        fontSize:20
     }
 
 })
