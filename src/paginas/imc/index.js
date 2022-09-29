@@ -10,7 +10,8 @@ export default function Imc(){
     const [altura, setAltura] = useState(null);
     const [result,  setResult] = useState(null);
     const [condicao, setCondicao] =useState(null);
-    
+
+      
 
 
     function Calcular(){
@@ -43,7 +44,13 @@ export default function Imc(){
     return(
         <View style={styles.container}>
             <View style={styles.divTitulo}>
-                <Text style={styles.txtTitulo}>Calculadora de IMC</Text>
+                <Text style={styles.txtTitulo}></Text>
+                <View style={styles.coluna}>
+                    <View style={styles.coluna1}>
+                        <Text style={styles.txtTitulo}>Calculadora de IMC</Text>
+                    </View>
+                    <View style={styles.coluna2}></View>
+                </View>
             </View>
 
             <View style={styles.divImg}>
@@ -51,6 +58,8 @@ export default function Imc(){
             </View>
 
             <View style={styles.divForm}>
+
+                <Text style={styles.txtHead}>Insira as informações Abaixo</Text>
                 <TextInput style={styles.input}
                 value={peso}
                 placeholder="Digite seu PESO"
