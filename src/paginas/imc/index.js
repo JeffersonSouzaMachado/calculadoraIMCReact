@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, FlatList } from "react-native";
 import Resultado from "../../componentes";
 import styles from "./styles";
 
@@ -10,34 +10,20 @@ export default function Imc() {
     const [altura, setAltura] = useState(null);
     const [result, setResult] = useState(null);
     const [condicao, setCondicao] = useState(null);
-    //const [reset, setReset] = useState(null);
+    const [lista, setLista] = useState([]);
 
-    const listaimc = [{
-        id: 1,
-        imc: 25.6
-    },
-    {
-        id: 2,
-        imc: 29.2
+    
+    function reset() {
+        setAltura("")
+        setPeso("")
+        setResult("")
+        setCondicao("")
     }
-
-]
-
-
-function reset(){
-    setAltura("")
-    setPeso("")
-    setResult("")
-    setCondicao("")
-}
-
-
-
-
     function Calcular() {
         if (peso != null && altura != null) {
             let imc = (peso / (altura * altura)).toFixed(2)
             setResult(imc)
+            setLista((arr)=>[...arr,{id:Math.random(1),resultImc:imc}])
 
             if (imc <= 18.5) {
                 setCondicao('Abaixo do peso')
@@ -54,28 +40,22 @@ function reset(){
             } else if (imc >= 40) {
                 setCondicao('Obesidade grau III, mórbida')
             }
-
-
-
         }
     }
-
-
     return (
         <View style={styles.container}>
-            <View style={styles.divTitulo}>
-                <Text style={styles.txtTitulo}></Text>
-                <View style={styles.coluna}>
-                    <View style={styles.coluna1}>
-                        <Text style={styles.txtTitulo}>Calculadora de IMC</Text>
-                    </View>
-                    <View style={styles.coluna2}>
-                        <TouchableOpacity onPress={reset} style={styles.btnReset}>
-                            <Text style={styles.txtReset}>Reset</Text>
-                        </TouchableOpacity>
-                    </View>
+            <Text style={styles.txtTitulo}></Text>
+            <View style={styles.coluna}>
+                <View style={styles.coluna1}>
+                    <Text style={styles.txtTitulo}>Calculadora de IMC</Text>
+                </View>
+                <View style={styles.coluna2}>
+                    <TouchableOpacity onPress={reset} style={styles.btnReset}>
+                        <Text style={styles.txtReset}>Reset</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
+
 
             <View style={styles.divImg}>
 
@@ -100,10 +80,36 @@ function reset(){
                 <TouchableOpacity onPress={Calcular} style={styles.btnCalcular}>
                     <Text style={styles.txtBtnCalcular}>Calcular</Text>
                 </TouchableOpacity>
+                <Resultado result={result} condicao={condicao} />
             </View>
 
-            <View style={styles.divResult}>
-                <Resultado result={result} condicao={condicao} />
+            <View style={styles.divLista}>
+
+
+                <FlatList
+                    showsHorizontalScrollIndicator={true}
+                    data={lista}
+                    renderItem={({ item }) => {
+                        return (
+                            <View style={styles.card}>
+                                <View style={styles.coluna}>
+                                    <View>
+                                        
+                                    </View>
+
+                                    <View>
+                                        <Text>{item.resultImc}</Text>
+                                    </View>
+                                </View>
+
+
+
+                            </View>
+                        )
+                    }}
+                    keyExtractor={item => item.id}
+                >
+                </FlatList>
             </View>
 
 

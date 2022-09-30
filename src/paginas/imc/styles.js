@@ -5,38 +5,33 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    coluna:{
-        flex:1,
-        flexDirection:'row',
-               
-    },
-    coluna1:{
-        flex:1,
-        //backgroundColor:'blue'
-    },
-    coluna2:{
-        flex:0.4,
-        //backgroundColor:'aqua',
-        alignItems:'center',
-        justifyContent:'center'
-       
-    },
-    divTitulo: {
+    coluna: {
         flex: 1,
-        //backgroundColor:"red",
+        flexDirection: 'row',
+
+    },
+    coluna1: {
+        flex: 1,
+        backgroundColor: 'blue',
+        height: "80%"
+    },
+    coluna2: {
+        flex: 0.4,
+        backgroundColor: 'aqua',
         alignItems: 'center',
         justifyContent: 'center',
-        //backgroundColor: "lightgrey",
+        height: "80%"
     },
     divForm: {
         flex: 3,
         //backgroundColor:"yellow"
         alignContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 20
     },
-    divResult: {
-        flex: 1,
-        //backgroundColor:"pink"
+    divLista: {
+        flex: 2,
+        backgroundColor: "pink",
         alignItems: "center",
         justifyContent: "center",
     },
@@ -45,7 +40,7 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginTop: 20,
         marginStart: 10,
-        color:'black'
+        color: 'black'
     },
     input: {
         width: '70%',
@@ -53,10 +48,10 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         fontSize: 20,
         borderWidth: 2,
-       // padding: 12,
-        marginTop: 10,
-        alignItems:'center',
-        textAlign:'center'
+        // padding: 12,
+        marginTop: 5,
+        alignItems: 'center',
+        textAlign: 'center'
     },
     btnCalcular: {
         width: "50%",
@@ -73,12 +68,12 @@ const styles = StyleSheet.create({
 
     },
     txtHead: {
-        fontSize:20,
-        fontWeight:'600',
-        marginTop:20,
-        marginBottom:20,
+        fontSize: 20,
+        fontWeight: '600',
+        marginTop: 5,
+        marginBottom: 20,
     },
-    btnReset:{
+    btnReset: {
         width: "60%",
         height: 60,
         backgroundColor: "grey",
@@ -87,8 +82,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
-    txtReset:{
-        fontSize:20
+    txtReset: {
+        fontSize: 20
+    },
+    card:{
+        backgroundColor:"lightgrey",
+        width:350,
+        height:40,
+        marginTop:10
     }
 
 })
