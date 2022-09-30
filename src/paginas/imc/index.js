@@ -23,7 +23,8 @@ export default function Imc() {
         if (peso != null && altura != null) {
             let imc = (peso / (altura * altura)).toFixed(2)
             setResult(imc)
-            setLista((arr)=>[...arr,{id:Math.random(1),resultImc:imc}])
+            let numeroAl = peso * Math.random(imc)
+            setLista((arr)=>[...arr,{id: numeroAl,resultImc:imc}])
 
             if (imc <= 18.5) {
                 setCondicao('Abaixo do peso')
@@ -88,7 +89,7 @@ export default function Imc() {
 
                 <FlatList
                     showsHorizontalScrollIndicator={true}
-                    data={lista}
+                    data={lista.reverse()}
                     renderItem={({ item }) => {
                         return (
                             <View style={styles.card}>
